@@ -1,0 +1,9 @@
+.popup__title-info{
+  color: black;
+  max-width: 358px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 auto;
+}

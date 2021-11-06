@@ -1,0 +1,27 @@
+.profile__name {
+  color: inherit;
+  max-width: 189px;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 33px;
+  margin: 0 auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .profile__name {
+    max-width: 223px;
+    font-size: 31px;
+    line-height: 39px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .profile__name {
+    font-size: 42px;
+    line-height: 48px;
+    max-width: 336px;
+  }
+}
