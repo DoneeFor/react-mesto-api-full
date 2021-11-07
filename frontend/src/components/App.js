@@ -158,7 +158,7 @@ function App() {
         .catch(err => {
             console.log(`Ошибка установки карточек: ${err}`)
         });
-      history.push('/sign-in');
+      history.push('/signin');
     })
     .catch(err=>{
       if(err.status === 400){
@@ -191,7 +191,7 @@ function App() {
   function handleSignout(){
     localStorage.removeItem('jwt');
     setIsLoggedIn(false)
-    history.push('/sign-in');
+    history.push('/signin');
   }
 
   function handelAddPlace(){
@@ -235,14 +235,14 @@ function App() {
             cards={cards}
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}/>
-          <Route  path="/sign-in">
+          <Route  path="/signin">
             <Login onSubmit={handleLoginSubmit}/>
           </Route>
-          <Route  path="/sign-up">
+          <Route  path="/signup">
             <Register onSubmit={handleRegSubmit}/>
           </Route>
           <Route path="/">
-            {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
+            {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}
           </Route>
         </Switch>
         <Footer />
