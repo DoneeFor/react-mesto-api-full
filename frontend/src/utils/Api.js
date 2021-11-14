@@ -1,4 +1,4 @@
-import * as auth from './auth';
+import * as auth from './Auth';
 
 class Api {
   constructor({ baseUrl, headers }) {
