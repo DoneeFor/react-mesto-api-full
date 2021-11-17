@@ -3,7 +3,6 @@ require('dotenv').config();
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 
 const express = require('express');
-const router = require('express').Router();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -56,14 +55,14 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-router.post('/signin', celebrate({
+app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required().min(8),
   }),
 }), login);
 
-router.post('/signup', celebrate({
+app.post('/signup', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required().min(8),
