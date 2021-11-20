@@ -143,7 +143,7 @@ function App() {
     .then(()=>{
       setIsInfoPopupOpen(true);
       setIsRegSucces(true);
-      api.getUserInfo()
+      api.getUserData()
         .then(user => {
         console.log(`Текущий пользователь: %o`, user)
         setCurrentUser(user);
@@ -175,6 +175,21 @@ function App() {
       localStorage.setItem("jwt", res.token)
       setIsLoggedIn(true);
       setEmail(email);
+      api.getUserData()
+        .then(user => {
+        console.log(`Текущий пользователь: %o`, user)
+        setCurrentUser(user);
+        })
+        .catch(err => {
+        console.log(`Ошибка установки пользователя: ${err}`)
+        });
+      api.getInitialCards()
+        .then(res =>{
+            setCards(res)
+        })
+        .catch(err => {
+            console.log(`Ошибка установки карточек: ${err}`)
+        });
       history.push("/")
     })
     .catch((err)=>{
